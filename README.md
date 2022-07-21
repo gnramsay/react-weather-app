@@ -31,6 +31,7 @@ I intend to add additional functionality and tweaks to it.
 - Pull more metadata from the weather API.
 - Default to current location (if available) for weather data (detect closest
   city/town).
+- Lock results to a specific country
 - Choose between Metric or Imperial units.
 - Save and show multiple cities or areas.
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import axios from "axios";
 import { AsyncPaginate } from "react-select-async-paginate";
 
 import { GEO_API_URL, geoApiOptions } from "../../api";
@@ -8,11 +9,11 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = inputValue => {
-    return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
-      geoApiOptions
-    )
-      .then(response => response.json())
+    geoApiOptions.params.namePrefix = inputValue;
+
+    return axios
+      .request("cities", geoApiOptions)
+      .then(response => response.data)
       .then(response => {
         return {
           options: response.data.map(city => {
@@ -38,6 +39,7 @@ const Search = ({ onSearchChange }) => {
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}
+      loadOptionsOnMenuOpen={false}
     />
   );
 };
