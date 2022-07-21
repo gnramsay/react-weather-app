@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./CurrentWeather.module.css";
+import styles from "./CurrentWeather.module.scss";
 
 const CurrentWeather = ({ data }) => {
   return (

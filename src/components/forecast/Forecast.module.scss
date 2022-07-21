@@ -51,12 +51,12 @@
   height: 30px;
   justify-content: space-between;
   align-items: center;
-}
 
-.dailyDetailsGridItem label:first-child {
-  color: #757575;
-}
+  label:first-child {
+    color: #757575;
+  }
 
-.dailyDetailsGridItem label:last-child {
-  color: #212121;
+  label:last-child {
+    color: #212121;
+  }
 }
