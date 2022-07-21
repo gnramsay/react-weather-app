@@ -20,3 +20,16 @@ I intend to add additional functionality and tweaks to it.
 ## Changes so far
 
 - removed all API keys from code and placed into a `.env` file.
+
+## Plans
+
+- responsive design.
+- add Dark/Light mode.
+- fix the min/max temp bug.
+- fix the forecast bug (it's not actually 7 days shown, but 7 3-hour periods).
+- change CSS to use css-modules, and rewrite as SCSS.
+- pull more metadata from the weather API.
+- default to current location (if available) for weather data.
+- fix the search, only shows 5 options and does not get next page or beyond.
+- choose between Metric or Imperial units.
+- save and show multiple cities or areas.
