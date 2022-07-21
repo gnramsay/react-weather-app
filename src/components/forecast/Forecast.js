@@ -8,7 +8,7 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 
-import "./Forecast.css";
+import styles from "./Forecast.module.css";
 
 const WEEK_DAYS = [
   "Monday",
@@ -28,23 +28,23 @@ const Forecast = ({ data }) => {
 
   return (
     <>
-      <label className="title">Daily</label>
+      <label className={styles.title}>Daily</label>
       <Accordion allowZeroExpanded>
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx}>
             <AccordionItemHeading>
               <AccordionItemButton>
-                <div className="daily-item">
+                <div className={styles.dailyItem}>
                   <img
-                    className="icon-small"
+                    className={styles.iconSmall}
                     src={`icons/${item.weather[0].icon}.png`}
                     alt="weather"
                   />
-                  <label className="day">{forecastDays[idx]}</label>
-                  <label className="description">
+                  <label className={styles.day}>{forecastDays[idx]}</label>
+                  <label className={styles.description}>
                     {item.weather[0].description}
                   </label>
-                  <label className="min-max">
+                  <label className={styles.minMax}>
                     {Math.round(item.main.temp_min)}&#8451; /{" "}
                     {Math.round(item.main.temp_max)}&#8451;
                   </label>
@@ -52,28 +52,28 @@ const Forecast = ({ data }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="daily-details-grid">
-                <div className="daily-details-grid-item">
+              <div className={styles.dailyDetailsGrid}>
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Pressure</label>
                   <label>{item.main.pressure}mB</label>
                 </div>
-                <div className="daily-details-grid-item">
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Humidity</label>
                   <label>{item.main.humidity}%</label>
                 </div>
-                <div className="daily-details-grid-item">
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Clouds</label>
                   <label>{item.clouds.all}%</label>
                 </div>
-                <div className="daily-details-grid-item">
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Wind Speed</label>
                   <label>{item.wind.speed} m/s</label>
                 </div>
-                <div className="daily-details-grid-item">
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Sea Level</label>
                   <label>{item.main.sea_level}mB</label>
                 </div>
-                <div className="daily-details-grid-item">
+                <div className={styles.dailyDetailsGridItem}>
                   <label>Feels Like</label>
                   <label>{Math.round(item.main.feels_like)}&#8451;</label>
                 </div>

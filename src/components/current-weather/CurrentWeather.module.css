@@ -23,14 +23,14 @@
   letter-spacing: 1px;
 }
 
-.weather-description {
+.weatherDescription {
   font-weight: 400;
   font-size: 14px;
   line-height: 1;
   margin: 0;
 }
 
-.weather-icon {
+.weatherIcon {
   width: 100px;
 }
 
@@ -47,18 +47,18 @@
   padding-left: 20px;
 }
 
-.parameter-row {
+.parameterRow {
   display: flex;
   justify-content: space-between;
 }
 
-.parameter-label {
+.parameterLabel {
   text-align: left;
   font-weight: 400;
   font-size: 12px;
 }
 
-.parameter-value {
+.parameterValue {
   text-align: right;
   font-weight: 600;
   font-size: 12px;
