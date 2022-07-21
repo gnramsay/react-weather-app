@@ -19,7 +19,8 @@ I intend to add additional functionality and tweaks to it.
 
 ## Changes so far
 
-- removed all API keys from code and placed into a `.env` file.
+- Removed all API keys from code and placed into a `.env` file.
+- Changed CSS to use css-modules, and rewrote as basic SCSS.
 
 ## Plans
 
@@ -27,7 +28,6 @@ I intend to add additional functionality and tweaks to it.
 
 - Responsive design.
 - Add Dark/Light mode.
-- Change CSS to use css-modules, and rewrite as SCSS.
 - Pull more metadata from the weather API.
 - Default to current location (if available) for weather data (detect closest
   city/town).

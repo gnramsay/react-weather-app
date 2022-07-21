@@ -1,44 +1,50 @@
 import React from "react";
 
-import "./CurrentWeather.css";
+import styles from "./CurrentWeather.module.scss";
 
 const CurrentWeather = ({ data }) => {
   return (
-    <div className="weather">
-      <div className="top">
+    <div className={styles.weather}>
+      <div className={styles.top}>
         <div>
-          <p className="city">{data.city}</p>
-          <p className="weather-description">{data.weather[0].description}</p>
+          <p className={styles.city}>{data.city}</p>
+          <p className={styles.weatherDescription}>
+            {data.weather[0].description}
+          </p>
         </div>
         <img
-          className="weather-icon"
+          className={styles.weatherIcon}
           src={`icons/${data.weather[0].icon}.png`}
           alt="weather"
         />
       </div>
-      <div className="bottom">
-        <p className="temperature">{Math.round(data.main.temp)}&#8451;</p>
-        <div className="details">
-          <div className="parameter-row">
-            <span className="parameter-label">Details</span>
+      <div className={styles.bottom}>
+        <p className={styles.temperature}>
+          {Math.round(data.main.temp)}&#8451;
+        </p>
+        <div className={styles.details}>
+          <div className={styles.parameterRow}>
+            <span className={styles.parameterLabel}>Details</span>
           </div>
-          <div className="parameter-row">
-            <span className="parameter-label">Feels like</span>
-            <span className="parameter-value">
+          <div className={styles.parameterRow}>
+            <span className={styles.parameterLabel}>Feels like</span>
+            <span className={styles.parameterValue}>
               {Math.round(data.main.feels_like)}&#8451;
             </span>
           </div>
-          <div className="parameter-row">
-            <span className="parameter-label">Wind</span>
-            <span className="parameter-value">{data.wind.speed} m/s</span>
+          <div className={styles.parameterRow}>
+            <span className={styles.parameterLabel}>Wind</span>
+            <span className={styles.parameterValue}>{data.wind.speed} m/s</span>
           </div>
-          <div className="parameter-row">
-            <span className="parameter-label">Humidity</span>
-            <span className="parameter-value">{data.main.humidity}%</span>
+          <div className={styles.parameterRow}>
+            <span className={styles.parameterLabel}>Humidity</span>
+            <span className={styles.parameterValue}>{data.main.humidity}%</span>
           </div>
-          <div className="parameter-row">
-            <span className="parameter-label">Pressure</span>
-            <span className="parameter-value">{data.main.pressure} mB</span>
+          <div className={styles.parameterRow}>
+            <span className={styles.parameterLabel}>Pressure</span>
+            <span className={styles.parameterValue}>
+              {data.main.pressure} mB
+            </span>
           </div>
         </div>
       </div>
