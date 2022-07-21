@@ -7,8 +7,6 @@ import { WEATHER_API_KEY, WEATHER_API_URL } from "./api";
 
 import "./App.css";
 
-console.log(String(WEATHER_API_KEY));
-
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
