@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
+import axios from "axios";
+
 import CurrentWeather from "./components/current-weather/CurrentWeather";
 import Forecast from "./components/forecast/Forecast";
 import Search from "./components/search/Search";
-import { WEATHER_API_KEY, WEATHER_API_URL } from "./api";
+import { weatherApiOptions } from "./api";
 
+// import { WEATHER_API_KEY, WEATHER_API_URL } from "./api";
 import "./App.css";
 
 function App() {
@@ -14,23 +17,16 @@ function App() {
   const handleOnSearchChange = searchData => {
     const [lat, lon] = searchData.value.split(" ");
 
-    const currentWeatherFetch = fetch(
-      // eslint-disable-next-line max-len
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=38d4bbbb395a21580a63a047ce43594f&units=metric`
-    );
-    const forecastFetch = fetch(
-      // eslint-disable-next-line max-len
-      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY.replaceAll(
-        // eslint-disable-next-line quotes
-        '"',
-        ""
-      )}&units=metric`
-    );
+    weatherApiOptions.params.lat = lat;
+    weatherApiOptions.params.lon = lon;
+
+    const currentWeatherFetch = axios.request("weather", weatherApiOptions);
+    const forecastFetch = axios.request("forecast", weatherApiOptions);
 
     Promise.all([currentWeatherFetch, forecastFetch])
       .then(async response => {
-        const weatherResponse = await response[0].json();
-        const forecastResponse = await response[1].json();
+        const weatherResponse = await response[0].data;
+        const forecastResponse = await response[1].data;
 
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecast({ city: searchData.label, ...forecastResponse });
@@ -40,8 +36,8 @@ function App() {
       });
   };
 
-  console.log(currentWeather);
-  console.log(forecast);
+  console.log("current  : ", currentWeather);
+  console.log("forecast : ", forecast);
 
   return (
     <div className="container">

@@ -13,5 +13,14 @@ export const geoApiOptions = {
   },
 };
 
-export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
-export const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+export const weatherApiOptions = {
+  method: "GET",
+  baseURL: "https://api.openweathermap.org/data/2.5/",
+  params: {
+    lat: "",
+    lon: "",
+    // eslint-disable-next-line quotes
+    appid: process.env.REACT_APP_WEATHER_API_KEY.replaceAll('"', ""),
+    units: "metric",
+  },
+};
