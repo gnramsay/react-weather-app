@@ -9,7 +9,8 @@ const Search = ({ onSearchChange }) => {
 
   const loadOptions = inputValue => {
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`,
+      // eslint-disable-next-line max-len
+      `${GEO_API_URL}/cities?sort=-population&minPopulation=1000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then(response => response.json())
